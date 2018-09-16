@@ -49,14 +49,14 @@ emoji = ('\U0001f601')
 #     print() #prints new line
 
 
-#?????
-string = input("Enter a word: ").lower()
-length = len(string)
+#PYRAMID made from a word
+# string = input("Enter a word: ").lower()
+# length = len(string)
 
-for row in range(length):
-    for col in range(row + 1):
-        print(string[col], end = ' ')
-    print() #prints new line
+# for row in range(length):  ##defining the rows
+#     for col in range(row + 1):  ##defining the columns
+#         print(string[col], end = '')
+#     print() #prints new line
 
 
 #HOLLOW BOX
@@ -72,8 +72,10 @@ for row in range(length):
 
 
 ##DIAMOND SHAPE - must use a function as there are two diamond patterns
+# def pyramid(rows):
+#     for i in range(rows): ##top of the diamond - top pyramid
+#         print(' ' * (rows - i - 1) + '* ' * (i + 1))
+#     for j in range(rows - 1, 0, -1): ##bottom of the diamond - after middle line
+#         print(' ' * (rows - j) + '* ' * (j))
 
-def pyramid(rows):
-    for i in range(rows): ##top of the pyramid
-        print('' * (rows - i - 1) + '* ' * (i + 1))
-    for j in range(rows - 1, 0, -1):
+# pyramid(10)
