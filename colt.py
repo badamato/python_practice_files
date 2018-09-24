@@ -60,20 +60,21 @@
 #         print(f'{i} is unlucky')
 
 ########WHILE LOOPS
-# star = '*'
+emoji = '\U0001f600'
 # x = 1
 
 # for x in range(1,11):
-#     print(star * x)
+#     print(emoji * x)
 
 # while x < 10:
-#     print (star * x)
+#     print (emoji * x)
 #     x = x + 1
 
-### NESTED LOOP
-# for x in range(2):
-#     for x in range(1,11):
-#         print('~' * x)
+### same as above but NESTED
+rows = int(input('Type number between 0 and 11: '))
+for x in range(rows): #these are the rows
+    for x in range(1,11):  #these are the columns
+        print(emoji * x)
 
 #EXERCISE
 # response = input('How is it going? ')
@@ -155,6 +156,8 @@
 #     msg = input('Password: ')
 # print('correct!')
 
+
+#simple while loop
 # x = 0
 # while x <= 50:
 #     print(x)
