@@ -1,4 +1,5 @@
 import pygame
+from chi import Player
 
 width = 512
 height = 480
@@ -11,7 +12,6 @@ clock = pygame.time.Clock()
 ##images
 tentImg = pygame.image.load('images/tent.gif').convert()
 background = pygame.image.load('images/background.png').convert()
-chi = pygame.image.load('images/chi.gif').convert()
 
 
 def tent(x, y):

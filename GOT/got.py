@@ -20,9 +20,12 @@ characters = [
         "https://www.anapioficeandfire.com/api/books/8"
         ], 
     "povBooks": [], 
-    "tvSeries": ["Season 1", 
-    "Season 2", 
-    "Season 3", "Season 4", "Season 6"],
+    "tvSeries": [
+        "Season 1", 
+        "Season 2", 
+        "Season 3", 
+        "Season 4", 
+        "Season 6"],
     "playedBy": ["Kristian Nairn"]
     }, 
 

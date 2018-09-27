@@ -51,4 +51,9 @@ for person in characters:
 
 #How many characters are *not* in the tv show?
 #Produce a list characters with the last name "Targaryen"
+def find_last-name:
+    count = 0
+    for person in characters:
+        if person['lastname'] == 
+
 #Create a histogram of the houses (it's the "allegiances" key)
