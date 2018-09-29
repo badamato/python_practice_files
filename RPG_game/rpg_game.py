@@ -16,6 +16,8 @@ class Character():
             return True
         return False
 
+#____________________________________________
+
 hero = Character("hero", 10, 5)
 goblin = Character("goblin", 6, 2)
 options = """

@@ -7,7 +7,7 @@ class Player(pygame.sprite.Sprite):
         # y: starting y coordinate
         # image: image string
         pygame.sprite.Sprite.__init__(self)
-        self.load_image(image)
+        # self.load_image(image)
         self.image = pygame.image.load("images/chi.gif").convert()
         self.timeTarget = 7
         self.timeNum = 0
@@ -19,11 +19,24 @@ class Player(pygame.sprite.Sprite):
         self.moving = False
         self.inventory = {}
 
+
+
+    # def load_image(self, image):
+    #     self.image = pygame.image.load("images/chi.gif").convert()
+
+
+
+
+
+
+
+
+
+
+
     def get_inventory(self):
         return self.inventory
 
-    def load_image(self, image):
-        self.image = pygame.image.load("images/chi.gif").convert()
 
     def update(self, movex, movey, items):
         # movex: number of pixels to move on x axis
