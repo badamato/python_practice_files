@@ -1,4 +1,5 @@
 import pygame
+# from block import Block
 
 
 class Player(pygame.sprite.Sprite):
@@ -7,7 +8,6 @@ class Player(pygame.sprite.Sprite):
         # y: starting y coordinate
         # image: image string
         pygame.sprite.Sprite.__init__(self)
-        # self.load_image(image)
         self.image = pygame.image.load("images/chi.gif").convert()
         self.timeTarget = 7
         self.timeNum = 0
@@ -19,10 +19,6 @@ class Player(pygame.sprite.Sprite):
         self.moving = False
         self.inventory = {}
 
-
-
-    # def load_image(self, image):
-    #     self.image = pygame.image.load("images/chi.gif").convert()
 
 
 
@@ -45,11 +41,6 @@ class Player(pygame.sprite.Sprite):
         self.move_sprite(movex, movey)
         self.items_coll(items)
         self.render()
-
-    def draw(self, Surface):
-        # blits Chi to the surface
-        # Surface: the surface in which self.image will be blited
-        Surface.blit(self.image,(self.rect.x,self.rect.y))
 
     def move_sprite(self, movex, movey):
         # moves sprite along x and y axis according to movex and movey
