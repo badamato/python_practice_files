@@ -46,9 +46,9 @@ player_speed = 15
 ##ITEMS TO COLLECT
 items = pygame.sprite.Group()
 logs = Item(350, 50, {'logs ': 1}, logsImg)
-fire = Item(370, 130, {'fire ': 1}, fireImg)
-fish = Item(330, 220, {'fish ': 1}, fishImg)
-water = Item(350, 310, {'water ': 1}, waterImg)
+fire = Item(350, 125, {'fire ': 1}, fireImg)
+fish = Item(340, 240, {'fish ': 1}, fishImg)
+water = Item(350, 325, {'water ': 1}, waterImg)
 items.add(logs, fire, fish, water)
 
 
@@ -87,6 +87,8 @@ while running:
 
     #key has been pressed
     pressed_keys = pygame.key.get_pressed()
+
+    # player.update(pressed_keys)
     player.update(pressed_keys)
 
 
