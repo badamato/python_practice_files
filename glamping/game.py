@@ -37,10 +37,7 @@ waterImg = 'images/water.png'
 
 # MAIN PLAYER (chihuahua) & ITEM SPRITES ----------------
 all_sprites = pygame.sprite.Group()
-
 player = Player(0, 0, 'images/chi.gif')
-player.rect.x = 165
-player.rect.y = 190
 player_speed = 15
 logs = Item(350, 50, {'logs ': 1}, logsImg)
 fire = Item(350, 125, {'fire ': 1}, fireImg)
