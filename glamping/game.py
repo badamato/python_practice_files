@@ -1,6 +1,7 @@
 import pygame
 from chi import Player
-# from supplies import Supplies
+from pygame.locals import *
+from supplies import Item
 
 
 
@@ -29,8 +30,12 @@ pygame.display.set_caption('NO TIME TO GLAMP!')
 ##opening images
 tentImg = pygame.image.load('images/tent.gif').convert()
 background = pygame.image.load('images/background.png').convert()
+logsImg = 'images/logs.png'
+fireImg = 'images/fire.png'
+fishImg = 'images/fish.png'
+waterImg = 'images/water.png'
 
-##opening character (chihuahua)
+##MAIN PLAYER (chihuahua)
 player = Player(0, 0, 'images/chi.gif')
 player.rect.x = 165
 player.rect.y = 190
@@ -38,71 +43,51 @@ player_list = pygame.sprite.Group()
 player_list.add(player)
 player_speed = 15
 
-# items_group = pygame.sprite.Group()
-# items_group.add(Items())
+##ITEMS TO COLLECT
+items = pygame.sprite.Group()
+logs = Item(350, 50, {'logs ': 1}, logsImg)
+fire = Item(370, 130, {'fire ': 1}, fireImg)
+fish = Item(330, 220, {'fish ': 1}, fishImg)
+water = Item(350, 310, {'water ': 1}, waterImg)
+items.add(logs, fire, fish, water)
 
 
 
-##add timer and display
-
+##collected items score
 def items_collected (screen, x, y, count):
     font = pygame.font.Font(None, 36)
-    text = font.render("Items Collected: "+str(count), True, white)
-    screen.blit(text,(120, 350))
-
-
-
-
-
-
-
-##game initialization - MAIN PROGRAM LOOP
-done = False
-
-##set player score base
+    text = font.render("Items Collected: "+ str(count), True, white)
+    screen.blit(text,(100, 350))
 score = 0
 
-# Speed in pixels per frame
-x_speed = 0
-y_speed = 0
-
-# Current position
-x_coord = 300
-y_coord = 1
+##timer coundown
+# def count_down (screen, x, y, count):
+#     font = pygame.font.Font (None, 36)
+#     text = 10, '10'.rjust(3)
+#     pygame.time.set_timer(pygame.USEREVENT, 1000)
 
 
+
+##game initialization
+running = True
 ##hides the mouse cursor
 pygame.mouse.set_visible(0)
 
-
-while not done:
-    ##event handling
+##main game loop
+while running:
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
+        #press escape key to quit game
+        if event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                running = False
+                raise SystemExit
+            elif event.type == QUIT:
+                running = False
+                raise SystemExit
 
-        # User pressed down on a key
-        elif event.type == pygame.KEYDOWN:
-            # Figure out if it was an arrow key. If so
-            # adjust speed.
-            if event.key == pygame.K_LEFT:
-                x_speed = -player_speed
-            elif event.key == pygame.K_RIGHT:
-                x_speed = player_speed
-            elif event.key == pygame.K_UP:
-                y_speed = -player_speed
-            elif event.key == pygame.K_DOWN:
-                y_speed = player_speed
-
-        # User let up on a key
-        elif event.type == pygame.KEYUP:
-            # If it is an arrow key, reset vector back to zero
-            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                x_speed = 0
-            elif event.key == pygame.K_UP or event.key == pygame.K_DOWN:
-                y_speed = 0
-
-
+    #key has been pressed
+    pressed_keys = pygame.key.get_pressed()
+    player.update(pressed_keys)
 
 
     ##game display
@@ -111,6 +96,7 @@ while not done:
     screen.blit(background, (0,0))
     screen.blit(tentImg, (width * 0.03, height * 0.35))
     player_list.draw(screen)
+    items.draw(screen)
     items_collected(screen, 20, 20, score) 
     pygame.display.flip()
     clock.tick(60)
